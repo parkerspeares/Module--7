@@ -23,3 +23,34 @@ function renderLicenseBadge(license) {
   
   return badge;
 }
+
+// TODO: Create a function that returns the license link
+function renderLicenseLink(license) {
+  let link = '';
+  // If there is no license, return an empty string
+  switch (license) {
+      case 'MIT':
+          link = 'https://opensource.org/licenses/MIT';
+          break;
+      case 'Apache 2.0':
+          link = 'https://opensource.org/licenses/Apache-2.0';
+          break;
+      case 'GPL 3.0':
+          link = 'https://opensource.org/licenses/GPL-3.0';
+          break;
+      case 'BSD 3-Clause':
+          link = 'https://opensource.org/licenses/BSD-3-Clause';
+          break;
+      // Add more cases as needed for different licenses
+      default:
+          link = '';  // Return an empty string if there is no license 
+          break;
+  }
+  
+  return link;
+}
+
+console.log(renderLicenseLink('MIT')); // Outputs: https://opensource.org/licenses/MIT
+console.log(renderLicenseLink('GPL 3.0')); // Outputs: https://opensource.org/licenses/GPL-3.0
+console.log(renderLicenseLink('Unknown')); // Outputs: ''
+
