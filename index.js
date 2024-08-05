@@ -49,7 +49,40 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+        .then((answers) => {
+            const { title, description, installation, usage, contributing, tests, license } = answers;
 
-// Function call to initialize app
+            const readmeContent = `
+# ${title}
+
+## Description
+${description}
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+## Contributing
+${contributing}
+
+## Tests
+${tests}
+
+## License
+${license}
+            `;
+
+            writeToFile('README.md', readmeContent);
+        })
+        .catch((error) => {
+            console.error('Error initializing app:', error);
+        });
+}
+
+// Function call to initialize the app
 init();
+
