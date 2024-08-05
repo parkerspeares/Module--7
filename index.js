@@ -43,7 +43,10 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFileSync(path.join(process.cwd(), fileName), data, 'utf8');
+    console.log(`README file generated: ${fileName}`);
+}
 
 // TODO: Create a function to initialize app
 function init() {}
